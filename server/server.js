@@ -19,5 +19,5 @@ db.once('open', () => {
   app.listen(PORT, () => {
     console.log('Express server started on port', PORT);
   })
-})
+});
 
