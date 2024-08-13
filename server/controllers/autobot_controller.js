@@ -1,4 +1,4 @@
-const Autobot = require('../models/Autobot');
+const { Autobot } = require('../models');
 
 module.exports = {
   async getAllAutobots(req, res) {

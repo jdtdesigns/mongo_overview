@@ -3,6 +3,7 @@ const path = require('path');
 
 const db = require('./config/connection');
 const api_routes = require('./routes/api_routes');
+const auth_routes = require('./routes/auth_routes');
 
 const app = express();
 const PORT = 3333;
@@ -15,6 +16,7 @@ app.use(express.json());
 
 // Load our routes
 app.use('/api', api_routes);
+app.use('/auth', auth_routes);
 
 // Send back the index.html file for all other requests/routes
 app.get('*', (req, res) => {
