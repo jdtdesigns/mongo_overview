@@ -1,4 +1,6 @@
+require('dotenv').config();
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const path = require('path');
 
 const db = require('./config/connection');
@@ -11,12 +13,15 @@ const PORT = 3333;
 // Create a GET route for every file inside of client
 app.use(express.static('../client'));
 
+// Attach all client-side cookies to the req.cookies property
+app.use(cookieParser());
+
 // Add the JSON middleware / Allow JSON to be attached to req.body
 app.use(express.json());
 
 // Load our routes
 app.use('/api', api_routes);
-app.use('/auth', auth_routes);
+app.use('/api/auth', auth_routes);
 
 // Send back the index.html file for all other requests/routes
 app.get('*', (req, res) => {

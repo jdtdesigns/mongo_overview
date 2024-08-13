@@ -28,10 +28,11 @@ const userSchema = new Schema({
 }, {
   // Edit the user's object before it gets sent out in a JSON response to the browser/client
   toJSON: {
-    transform(user) {
-      delete user.password;
+    transform(user, jsonVal) {
+      delete jsonVal.password;
+      delete jsonVal.__v;
 
-      return user;
+      return jsonVal;
     }
   }
 });
@@ -44,7 +45,7 @@ userSchema.pre('save', async function () {
 });
 
 userSchema.methods.validatePassword = async function (formPassword) {
-  const is_valid = await compare(this.password, formPassword);
+  const is_valid = await compare(formPassword, this.password);
 
   return is_valid;
 }
