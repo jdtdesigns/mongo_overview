@@ -1,0 +1,22 @@
+/* RESETS */
+body {
+  background: #555;
+  color: #eee;
+  font-family: sans-serif;
+}
+
+/* GLOBAL CLASSES */
+.text-center {
+  text-align: center;
+}
+
+.code {
+  color: #fedf0d;
+  padding: 3px 5px;
+  background: #333;
+}
+
+/* CUSTOM STYLES */
+ul li {
+  margin-bottom: 15px;
+}
