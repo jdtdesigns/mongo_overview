@@ -12,11 +12,21 @@
     <p>Your place for all your Transformers data needs</p>
   </section>
 
-  <h2>Routes:</h2>
-
+  <h3>Autobot Routes:</h3>
   <ul>
     <li><span class="code">GET /api/autobots</span> - Retrieve all Autobots</li>
-    <li><span class="code">POST /api/autobots</span> - Add an Autobot to the database <span class="code">JSON {name: STRING, color: STRING}</span></li>
+    <li><span class="code">GET /user</span> - Retrieve a single user and their associated Autobots <span class="code">Requires Authentication</span></li>
+    <li><span class="code">POST /api/autobots</span> - Add an Autobot to the database <span class="code">JSON {name: STRING, color: STRING} | Requires Authentication</span></li>
+    <li><span class="code">PUT /api/autobot</span> - Update an Autobot in the database <span class="code">JSON {autobot_id: ID, name: STRING, color: STRING} | Requires Authentication</span></li>
+    <li><span class="code">DELETE /api/autobot</span> - Remove an Autobot from the database <span class="code">JSON {autobot_id:
+        ID} | Requires Authentication</span></li>
+  </ul>
+
+  <h3>User Routes:</h3>
+  <ul>
+    <li><span class="code">POST /api/auth/register</span> - Register a user account <span class="code">JSON {email: STRING, password: STRING(minimum 6 characters)}</span></li>
+    <li><span class="code">POST /api/auth/login</span> - Log in to your account<span class="code">JSON {email: STRING,
+        password: STRING}</span></li>
   </ul>
 </body>
 </html>
