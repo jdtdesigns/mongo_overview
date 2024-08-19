@@ -11,7 +11,7 @@ const app = express();
 const PORT = 3333;
 
 // Create a GET route for every file inside of client
-app.use(express.static('../client'));
+app.use(express.static('../client/deploy_code'));
 
 // Attach all client-side cookies to the req.cookies property
 app.use(cookieParser());
@@ -25,7 +25,7 @@ app.use('/api/auth', auth_routes);
 
 // Send back the index.html file for all other requests/routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/index.html'));
+  res.sendFile(path.join(__dirname, '../client/deploy_code/index.html'));
 });
 
 db.once('open', () => {
